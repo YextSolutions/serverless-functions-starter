@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
@@ -21,7 +20,7 @@ export const PostModal = ({ open, setOpen }: PostModalProps) => {
         body,
       }),
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
       },
     });
 

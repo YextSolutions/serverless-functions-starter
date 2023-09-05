@@ -6,6 +6,8 @@ export default async function posts(
 ): Promise<SitesHttpResponse> {
   const { method, body } = request;
 
+  console.log("body", body);
+
   switch (method) {
     case "GET":
       const postsResp = await fetch(
@@ -54,6 +56,6 @@ export default async function posts(
         statusCode: 200,
       };
     default:
-      return { body: "Method not allowed", headers: {}, statusCode: 405 };
+      return { body, headers: {}, statusCode: 405 };
   }
 }

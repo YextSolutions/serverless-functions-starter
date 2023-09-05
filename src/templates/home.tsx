@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useEffect, useState } from "react";
 import { fetch } from "@yext/pages/util";
 import "../index.css";
@@ -11,6 +10,8 @@ import {
 } from "@yext/pages";
 import Favicon from "../public/yext-favicon.ico";
 import { PostModal } from "../components/PostModal";
+
+import { Post } from "../types/post";
 
 export const getPath: GetPath<TemplateRenderProps> = () => {
   return `index.html`;
@@ -26,14 +27,14 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-const Home: Template<TemplateRenderProps> = ({ document }) => {
-  const [posts, setPosts] = useState([]);
+const Home: Template<TemplateRenderProps> = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     fetch("/api/posts")
       .then((response) => response.json())
-      .then((json) => setPosts(json));
+      .then((json) => setPosts(json as Post[]));
   }, []);
 
   return (
