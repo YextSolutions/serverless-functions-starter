@@ -20,7 +20,7 @@ export const PostModal = ({ open, setOpen }: PostModalProps) => {
         body,
       }),
       headers: {
-        // "Content-Type": "application/json",
+        "Content-Type": "application/json",
       },
     });
 
