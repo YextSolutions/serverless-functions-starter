@@ -9,7 +9,7 @@
     "features": "sites-config/features.json",
     "plugins": [
       {
-        "pluginName": "Generator",
+        "pluginName": "PagesGenerator",
         "sourceFiles": [
           {
             "root": "dist/plugin",
@@ -17,11 +17,35 @@
           },
           {
             "root": "dist",
-            "pattern": "assets/{server,static,renderer}/**/*{.js,.css}"
+            "pattern": "assets/{server,static,renderer,render}/**/*{.js,.css}"
           }
         ],
         "event": "ON_PAGE_GENERATE",
-        "functionName": "Generate"
+        "functionName": "PagesGenerator"
+      },
+      {
+        "pluginName": "posts-00010",
+        "event": "API",
+        "functionName": "default",
+        "apiPath": "api/posts",
+        "sourceFiles": [
+          {
+            "root": "dist/functions/posts-00010",
+            "pattern": "*{.js,.ts}"
+          }
+        ]
+      },
+      {
+        "pluginName": "id-50702",
+        "event": "API",
+        "functionName": "default",
+        "apiPath": "api/posts/{{id}}",
+        "sourceFiles": [
+          {
+            "root": "dist/functions/id-50702",
+            "pattern": "*{.js,.ts}"
+          }
+        ]
       }
     ]
   },
